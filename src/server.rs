@@ -1,6 +1,6 @@
-use std::io::Read;
-use crate::{Request};
+use std::io::{Read, Write};
 use std::net::TcpListener;
+use crate::http::{Request, Response, StatusCode};
 
 pub struct Server {
     addr: String,
@@ -26,10 +26,13 @@ impl Server {
                                 println!("Client disconnected");
                             },
                             Ok(n) => {
-                                let buf = &buf[..n];
-                                println!("{}", String::from_utf8_lossy(buf));
-                                match Request::try_from(buf){
+                                let buf_ = &buf[..n];
+                                println!("{}", String::from_utf8_lossy(buf_));
+                                match Request::try_from(buf_){
                                     Ok(request) => {
+                                        dbg!(request);
+                                        let response = Response::new(StatusCode::Ok,Some("<h1>It Works!</h1>".to_string()));
+                                        write!(stream, "{}", response);
                                         // println!("{:?}", request);
                                     }
                                     Err(e) => {
