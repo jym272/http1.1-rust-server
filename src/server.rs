@@ -33,7 +33,6 @@ impl Server {
                                         dbg!(request);
                                         let response = Response::new(StatusCode::Ok,Some("<h1>It Works!</h1>".to_string()));
                                         write!(stream, "{}", response);
-                                        // println!("{:?}", request);
                                     }
                                     Err(e) => {
                                         println!("Failed to parse a request: {}", e);

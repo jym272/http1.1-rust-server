@@ -16,6 +16,8 @@ impl<'buffer> Query<'buffer> {
     }
 }
 
+//for testing purposes:
+// http://localhost:8080/status/net?movies=trye&yielf=as&movies=asd&a=1&b=2&c&d=&e===&d=7&d=abc
 impl<'buffer> From<&'buffer str> for Query<'buffer> {
     // a=1&b=2&c&d=&e===&d=7&d=abc
     fn from(query: &'buffer str) -> Query {

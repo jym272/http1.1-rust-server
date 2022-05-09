@@ -30,10 +30,10 @@ impl Response {
             body,
         }
     }
-    pub fn send(&self, stream: &mut TcpStream)-> Result<(), std::io::Error> {
+   /* pub fn send(&self, stream: &mut TcpStream)-> Result<(), std::io::Error> {
         let status_line = format!("HTTP/1.1 {} OK\r\n", self.status_code);
         stream.write(status_line.as_bytes())?;
-    }
+    }*/
 }
 
 impl Display for Response{
