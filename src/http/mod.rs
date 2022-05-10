@@ -4,7 +4,7 @@ mod query;
 mod response;
 mod status_code;
 
-pub use request::Request;
+pub use request::{Request, ParseError};
 pub use response::Response;
 pub use method::{Method, MethodError};
 pub use query::Query;

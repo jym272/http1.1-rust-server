@@ -1,0 +1,14 @@
+body {
+    background-color: #8a0b0b;
+}
+
+h1 {
+    color: #8a0b0b;
+}
+
+.header {
+    background-color: #f1f1f1;
+    color: #9c0a0a;
+    text-align: center;
+    padding: 20px;
+}

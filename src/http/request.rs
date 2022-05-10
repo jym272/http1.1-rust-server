@@ -11,6 +11,22 @@ pub struct Request<'buffer> {
     query: Option<Query<'buffer>>, //absent if not present
 }
 
+impl Request<'_> {
+    //getters
+    pub fn method(&self) -> &Method {
+        &self.method
+    }
+
+    pub fn path(&self) -> &str {
+        self.path
+    }
+
+    pub fn query(&self) -> Option<&Query> {
+        self.query.as_ref()
+    }
+
+}
+
 pub enum ParseError {
     InvalidRequest,
     InvalidEncoding,
